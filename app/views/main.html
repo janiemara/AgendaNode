@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <h1>Agenda</h1>
+</div>
+
+<div class="row marketing">
+
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+
+                <input type="text" class="form-control" placeholder="Search Contact data" ng-model="searchFish">
+
+            </div>      
+        </div>
+    </form>
+
+    <div class="box-body">
+        <table id="example" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="col-md-3">Nome</th>
+                    <th class="col-md-3">Sobrenome</th>
+                    <th class="col-md-1">Telefone</th>
+                    <th class="col-md-2">Apelido</th>
+                    <th class="col-md-1">Data Cadastro</th>
+                    <th class="col-md-2">Ações</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <tr ng-repeat = "contact in getListContacts()| filter:searchFish">
+                    <td><a href="#!/visualize" class="text-warning" ng-click="getContact($index)">{{contact.nome}} </a></td>
+                    <td>{{contact.sobrenome}} </td>
+                    <td>{{contact.telefone}} </td>
+                    <td>{{contact.apelido}} </td>
+                    <td>{{contact.datacadastro}} </td>
+                    <td class="text-center">                            
+
+                        <a href="#!/edit" class="text-warning" ng-click="getContact($index)"><span class="glyphicon glyphicon-edit"></span></a>
+                        &nbsp;
+                        <a href="#/" class="text-warning" ng-click="deleteContact($index)"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                </tr>                      
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
