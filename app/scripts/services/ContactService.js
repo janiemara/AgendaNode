@@ -1,3 +1,13 @@
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name agendaApp.service:ListContactsService
+ * @description
+ * # ContactService
+ * Service of the agendaApp
+ */
+
 angular.module('agendaApp').service('ListContactsService', ['$http', function ($http) {
 
         return{

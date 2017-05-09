@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name agendaApp.controller:AboutCtrl
+ * @name agendaApp.controller:ListContactsController
  * @description
- * # AboutCtrl
+ * # ContactController
  * Controller of the agendaApp
  */
 angular.module('agendaApp')
@@ -63,14 +63,13 @@ angular.module('agendaApp')
                     }
                 };
 
-                $scope.getContact = function (index) {
-                    $rootScope.index = index;
-                    $rootScope.editContact = $rootScope.listData[index];
+                $scope.getContact = function (contact) {
+                    $rootScope.editContact = $rootScope.listData[$rootScope.listData.indexOf(contact)];
 
                 };
 
-                $scope.deleteContact = function (index) {
-                    $rootScope.listData.splice(index, 1);
+                $scope.deleteContact = function (contact) {
+                    $rootScope.listData.splice($rootScope.listData.indexOf(contact), 1);
                 };
 
                 $scope.updateContact = function (editContact, index) {
