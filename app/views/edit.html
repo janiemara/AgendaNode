@@ -4,12 +4,12 @@
         <div class="col-md-6">
             <label>Nome:</label>
             <input style="display: none" type="text" ng-model="index" class="form-control">
-            <input type="text" ng-model="newContact.nome" class="form-control" required>
+            <input type="text" ng-model="editContact.nome" class="form-control" required>
             <p ng-show="form.name.$invalid" class="help-block">Seu nome é obrigatório</p>
         </div>
         <div class="col-md-6">
             <label>Sobrenome:</label>
-            <input type="text" ng-model="newContact.sobrenome" class="form-control" required>
+            <input type="text" ng-model="editContact.sobrenome" class="form-control" required>
             <p ng-show="form.sobrenome.$invalid" class="help-block">Seu sobrenome é obrigatório</p>
         </div>
     </div>
@@ -17,23 +17,23 @@
     <div class="row">
         <div class="col-md-4">
             <label>Telefone:</label>
-            <input type="text" ng-model="newContact.telefone" class="form-control" required>
+            <input type="text" ng-model="editContact.telefone" class="form-control" required>
             <p ng-show="form.telefone.$invalid" class="help-block">Seu telefone é obrigatório</p>
         </div>
         <div class="col-md-4">
             <label>Apelido:</label>
-            <input type="text" ng-model="newContact.apelido" class="form-control" required>
+            <input type="text" ng-model="editContact.apelido" class="form-control" required>
             <p ng-show="form.apelido.$invalid" class="help-block">Seu apelido é obrigatório</p>
         </div>
         <div class="col-md-4">
             <label>Data de cadastro:</label>
-            <input type="text" ng-model="newContact.datacadastro" class="form-control" required>
+            <input type="text" ng-model="editContact.datacadastro" class="form-control" required>
             <p ng-show="form.datacadastro.$invalid" class="help-block">Sua data de cadastro é obrigatória</p>
         </div>
     </div>	
     <br>
     <div>
-        <a href="#/" type="button" class="btn btn-success" ng-click="updateContact(newContact, index)"><span class="glyphicon glyphicon-floppy-save"></span>Salvar</a>        
+        <a href="#/" type="button" class="btn btn-success" ng-click="updateContact(editContact, index)"><span class="glyphicon glyphicon-floppy-save"></span>Salvar</a>        
         <a class="btn btn-default" href="#/" role="button">Cancelar</a>
     </div>
 

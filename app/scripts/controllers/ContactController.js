@@ -16,7 +16,8 @@ angular.module('agendaApp')
                     $rootScope.loadJson = false;
                 }
 
-                $rootScope.contact = {};
+                $scope.exist = false;
+
                 $scope.getListJson = function () {
                     ListContactsService.listContacts(function (response) {
                         $rootScope.listData = response.data;
@@ -36,22 +37,24 @@ angular.module('agendaApp')
                     return $rootScope.listData;
                 };
 
+                $scope.validNameExist = function(nameContact){
+                    for (var i = 0; i < $rootScope.listData.length; i++) {
+                            if ($rootScope.listData[i]['nome'] == nameContact) {
+                                return $scope.exist = true;
+                            }
+                        }
+                };
+
                 $scope.addContact = function () {
                     
                     console.log('addContact '+$rootScope.listData);
                     if ($scope.form.$valid) {
 
-                        for (var i = 0; i < $rootScope.listData.length; i++) {
-                            if ($rootScope.listData[i]['nome'] == $scope.addContact.nome) {
-                                $scope.exist = true;
-                            }
-                        }
-
-                        if ($scope.exist) {
+                        if ($scope.validNameExist($scope.addNewContact.nome)) {
                             window.alert('Contact already exists!');
                         }
                         else {
-                            $rootScope.listData.push($scope.addContact);
+                            $rootScope.listData.push($scope.addNewContact);
                             window.alert('Contact added successfully!');
                             window.location.href = '#/';
                         }
@@ -63,7 +66,7 @@ angular.module('agendaApp')
 
                 $scope.getContact = function (index) {
                     $rootScope.index = index;
-                    $rootScope.newContact = $rootScope.listData[index];
+                    $rootScope.editContact = $rootScope.listData[index];
 
                 };
 
@@ -73,8 +76,8 @@ angular.module('agendaApp')
                     console.log($rootScope.listData);
                 };
 
-                $scope.updateContact = function (newContact, index) {
-                    $rootScope.listData[index] = newContact;
+                $scope.updateContact = function (editContact, index) {
+                    $rootScope.listData[index] = editContact;
 
                     window.alert('Contact update successfully!');
                     window.location.href = '#/';
