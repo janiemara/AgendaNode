@@ -11,7 +11,6 @@ angular.module('agendaApp')
         .controller('ListContactsController', ['ListContactsService', '$scope', '$rootScope', function (ListContactsService, $scope, $rootScope) {
 
                 if (!$rootScope.listData) {
-                    console.log('List Data');
                     $rootScope.listData = [];
                     $rootScope.loadJson = false;
                 }
@@ -22,8 +21,7 @@ angular.module('agendaApp')
                     ListContactsService.listContacts(function (response) {
                         $rootScope.listData = response.data;
                         $rootScope.loadJson = true;
-                        console.log('getListJson');
-
+                        
                     }, function (response) {
                         $scope.result = 'Error!!!';
                     });
@@ -47,7 +45,6 @@ angular.module('agendaApp')
 
                 $scope.addContact = function () {
                     
-                    console.log('addContact '+$rootScope.listData);
                     if ($scope.form.$valid) {
 
                         if ($scope.validNameExist($scope.addNewContact.nome)) {
@@ -71,9 +68,7 @@ angular.module('agendaApp')
                 };
 
                 $scope.deleteContact = function (index) {
-                    console.log(index); 
                     $rootScope.listData.splice(index, 1);
-                    console.log($rootScope.listData);
                 };
 
                 $scope.updateContact = function (editContact, index) {
