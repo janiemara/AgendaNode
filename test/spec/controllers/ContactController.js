@@ -25,11 +25,15 @@ describe('Controller: ListContactsController', function () {
   }));
 
 
-  it('should validate name already exists in list', function(){
+  it('should validate name already exists in list - true', function(){
      
-     expect(scope.validNameExist('Liz')).toBe(false);
+     expect(scope.validNameExist('Liz')).toBe(true);
   });
 
+  it('should validate name already exists in list - false', function(){
+    
+     expect(scope.validNameExist('Fatima')).toBe(false);
+  });
 
   it('should remove item to list', function(){
      scope.deleteContact(0);

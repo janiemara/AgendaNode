@@ -38,9 +38,11 @@ angular.module('agendaApp')
                 $scope.validNameExist = function(nameContact){
                     for (var i = 0; i < $rootScope.listData.length; i++) {
                             if ($rootScope.listData[i]['nome'] == nameContact) {
-                                return $scope.exist = true;
+                                $scope.exist = true;
                             }
                         }
+
+                        return $scope.exist;
                 };
 
                 $scope.addContact = function () {
