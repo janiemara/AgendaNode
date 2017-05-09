@@ -68,7 +68,7 @@ angular.module('agendaApp')
                 };
 
                 $scope.deleteContact = function (index) {
-
+                    console.log(index); 
                     $rootScope.listData.splice(index, 1);
                     console.log($rootScope.listData);
                 };
